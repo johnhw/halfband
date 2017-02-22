@@ -17,7 +17,7 @@ Compile and run the test code:
 Create a cascade for 8x oversampling:
     
     // 8=2^3, 10=order of filter, 0=not steep filter
-    cascade = create_half_cascade(3, 10, 0);
+    half_cascade *cascade = create_half_cascade(3, 10, 0);
     
 Apply the filter to an array, 8 samples at a time:
 

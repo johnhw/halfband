@@ -347,10 +347,7 @@ double process_half_cascade(half_cascade *cascade, double *input)
    // cascade 1
    k = 0;
    for(j=0;j<nbuf;j+=2)
-   {
-       // note that we process the buffer in-place, writing
-       // the decimated sample at the start of the buffer, always
-       // behind the position read
+   {       
        b = process_halfband(cascade->halfs[0], input[j]);
        b = process_halfband(cascade->halfs[0], input[j+1]);
        // decimate and store
@@ -370,7 +367,6 @@ double process_half_cascade(half_cascade *cascade, double *input)
            // behind the position read
            b = process_halfband(cascade->halfs[i], cascade->buf[j]);
            b = process_halfband(cascade->halfs[i], cascade->buf[j+1]);
-           // decimate and store
            cascade->buf[k++] = b;           
        }
        // next buf size
